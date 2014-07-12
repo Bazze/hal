@@ -285,6 +285,34 @@ class Hal
     }
 
     /**
+     * Set a property after instance creation.
+     */
+    public function setProperty($key, $value)
+    {
+        $this->data[$key] = $value;
+    }
+
+    /**
+     * Get a property after instance creation.
+     *
+     * @return mixed
+     */
+    public function getProperty($key)
+    {
+        return $this->hasProperty($key) ? $this->data[$key] : null;
+    }
+
+    /**
+     * Check if a property is set on the data property.
+     *
+     * @return bool
+     */
+    public function hasProperty($key)
+    {
+        return isset($this->data[$key]);
+    }
+
+    /**
      * Return the current object in a application/hal+json format (links and
      * resources).
      *
